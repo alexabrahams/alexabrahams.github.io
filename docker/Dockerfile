@@ -1,1 +1,1 @@
-FROM thomasweise/docker-texlive-full
+FROM harshjv/texlive-2015
