@@ -13,4 +13,6 @@ script:
   - make clean
   - make build
   - make github
-
+env:
+  global:
+    - secure: "dnt7CEukxRxGyj9HHstHhmW78SucKqqoS9a6dVKvxz6AaPBboAZvFUgkT1Jmlwmgi6yZK9eUKd3KYOaeObrp8LpuVtjwCme8uYozcepal1rbxdAcetjh8Mj7j4RNRKbz9CrAdDpStADqNCexRBVp2zs+aX1pDFnoIPCw8ROwdmDzHBph8rreR7debh/iRmkbtsK/xcNFnD/PDw5Qcl/9XWXlqENyK4Paw5SHDMAoMoO6uYCCH8/s0EWjN/5eYYHuIOG0QRufG0ZEaBNa1yJiVb0eNpKo56MAxLwRb5ha7dBxAkpskYuN8NcEfSWjUODWY9Y5pU1eTRg27ZvSi6+E76UgXMjlfzh19m5Wh/AK3GGKrPmdM1S7OnKiN/B2EOw2jHSbKp8nswKWcglLY9WihqzMkyEFNEIM9/+WUhdq+f+l+++orICtqocMXrMDl+RlmxVABdC+jwwPQ6W65djSZqzjaTCek0EKQCZNL4UHkonIE8toEnOahSLxvbnCKzitnkqQ0DbA0VDVXH9MNuH7Cn95B3pcw5ZqNacQfC2MaCsdqTHvcEvDlIBSwN+IW4SZc1rugq+H9fsXq0wBPjK02Vxk/vzFAQswxlxmhHrIfYeggGf1s9UP/PcdsC/0G5DnF3xQdaRRwUhtHHjFDG1CMYzwIo0IH1D1Xp08zR12kBE="

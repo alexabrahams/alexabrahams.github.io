@@ -2,3 +2,5 @@
 *.tar.gz
 /env/
 /output/
+.DS_Store
+.idea
