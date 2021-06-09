@@ -1,0 +1,233 @@
+\documentclass[12pt,letterpaper]{article}
+
+\def\myauthor{Alex}
+\def\mytitle{aa-vita}
+\def\myemail{mail@alexabrahams.me}
+\def\myweb{}
+\def\myphone{+31 636474600}
+\def\mykeywords{
+  alex abrahams, 
+  resume, 
+  curriculum, 
+  vita, 
+  curriculum vita, 
+  cv
+}
+
+\setlength\parindent{0pt}
+
+\newenvironment{itemize*}%
+{\begin{itemize}%
+  \setlength{\itemsep}{0.2pt}}%
+{\end{itemize}}
+
+\usepackage{url}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+%\usepackage{ocgtools}
+\usepackage{enumitem}
+\setlist{nolistsep,leftmargin=0.15in}
+\usepackage[log-declarations=false]{xparse}
+\usepackage[adobe-garamond]{mathdesign}
+\usepackage[no-math]{fontspec}
+\usepackage{microtype}
+\usepackage[margin=1.125in,top=1.35in,right=1in,left=2in]{geometry}
+\usepackage[strict]{changepage}
+\usepackage[
+  ocgcolorlinks,
+  urlcolor={[rgb]{0,0,0.54}},
+  unicode,
+  plainpages=false,
+  pdfpagelabels,
+  pdftitle={\mytitle},
+  pdfauthor={\myauthor},
+  pdfkeywords={\mykeywords}
+]{hyperref}
+
+% fix ocgcolor link breaking; thanks due to Benjamin Lerner (http://goo.gl/VZKR7M)
+\makeatletter
+\AtBeginDocument{%
+  \newlength{\temp@x}%
+  \newlength{\temp@y}%
+  \newlength{\temp@w}%
+  \newlength{\temp@h}%
+  \def\my@coords#1#2#3#4{%
+    \setlength{\temp@x}{#1}%
+    \setlength{\temp@y}{#2}%
+    \setlength{\temp@w}{#3}%
+    \setlength{\temp@h}{#4}%
+    \adjustlengths{}%
+    \my@pdfliteral{\strip@pt\temp@x\space\strip@pt\temp@y\space\strip@pt\temp@w\space\strip@pt\temp@h\space re}}%
+  \ifpdf
+    \typeout{In PDF mode}%
+    \def\my@pdfliteral#1{\pdfliteral page{#1}}% I don't know why % this command...
+    \def\adjustlengths{}%
+  \fi
+  \ifxetex
+    \def\my@pdfliteral #1{\special{pdf: literal direct #1}}% isn't equivalent to this one
+    \def\adjustlengths{\setlength{\temp@h}{-\temp@h}\addtolength{\temp@y}{1in}\addtolength{\temp@x}{-1in}}%
+  \fi%
+  \def\Hy@colorlink#1{%
+    \begingroup
+      \ifHy@ocgcolorlinks
+        \def\Hy@ocgcolor{#1}%
+        \my@pdfliteral{q}%
+        \my@pdfliteral{7 Tr}% Set text mode to clipping-only
+      \else
+        \HyColor@UseColor#1%
+      \fi
+  }%
+  \def\Hy@endcolorlink{%
+    \ifHy@ocgcolorlinks%
+      \my@pdfliteral{/OC/OCPrint BDC}%
+      \my@coords{0pt}{0pt}{\pdfpagewidth}{\pdfpageheight}%
+      \my@pdfliteral{F}% Fill clipping path (the url's text) with current color
+      \my@pdfliteral{EMC/OC/OCView BDC}%
+      \begingroup%
+        \expandafter\HyColor@UseColor\Hy@ocgcolor%
+        \my@coords{0pt}{0pt}{\pdfpagewidth}{\pdfpageheight}%
+        \my@pdfliteral{F}% Fill clipping path (the url's text) with \Hy@ocgcolor
+      \endgroup%
+      \my@pdfliteral{EMC}%
+      \my@pdfliteral{0 Tr}% Reset text to normal mode
+      \my@pdfliteral{Q}%
+    \fi
+    \endgroup
+  }%
+}
+\makeatother
+% end fixes
+
+\newcommand{\ML}{\textsc{Matlab}}
+\newcommand{\Simu}{Simulink}
+\newcommand{\MLS}{\ML{}/\Simu{}}
+\newcommand{\apdl}{\textsc{APDL}}
+\newcommand{\ansys}{\textsc{Ansys}}
+\newcommand{\fluent}{\textsc{Fluent}}
+\newcommand\CPP{C\ensuremath{+}\ensuremath{+}}
+\newcommand{\Star}{\textsc{Star-CCM\ensuremath{+}}}
+
+\newcommand{\mhead}[1]{\leavevmode\marginpar{\sffamily\footnotesize #1}}
+\newcommand{\rdate}[1]{{\addfontfeature{Numbers=OldStyle} \hfill #1}}
+\renewcommand{\date}[1]{{\addfontfeature{Numbers=OldStyle} #1}}
+\renewcommand{\labelitemi}{-} 
+
+\setmainfont[
+    % Extension = .otf,
+  Ligatures={TeX,Common},
+  BoldFont={AdobeGaramondProSemibold.otf},
+  ItalicFont={AdobeGaramondProItalic.ttf},
+]{AdobeGaramondProRegular.ttf}
+\setsansfont[
+    Extension = .ttf,
+  Ligatures={TeX,Common},
+  Letters=SmallCaps,
+  Color=0000,
+]{AdobeGaramondProRegular}
+\setmonofont[Scale=0.85]{FontAwesome}
+
+\makeatletter % fix for \hrulefill w/ mathdesign package
+\def\hrulefill{\leavevmode\leaders \hrule height \rulethickness \hfill\kern\z@}
+\makeatletter
+
+\begin{document}\flushbottom
+\pagestyle{fancy} \setlength\headwidth{6.5in}
+\rhead{\textsc{alex ~abrahams—r\'{e}sum\'{e}—\thepage{} of \pageref*{LastPage}}} \cfoot{}
+\thispagestyle{empty}
+\begin{adjustwidth}{-1in}{}
+{\Huge
+  {\textsc{%
+    {\addfontfeature{Style=TitlingCaps}A}\kern-1.5ptlex 
+    % {\addfontfeature{Style=TitlingCaps}B}\kern-2pt.~%
+    {\addfontfeature{Style=TitlingCaps}A}brahams}
+  }
+}
+\hfill\hfill\hfill
+{
+%   \begin{minipage}[b]{2in}
+%     \flushleft \footnotesize 
+%     4088 West Hawthorne Trace Road \\ 
+%     Apartment 202 \\ 
+%     Brown Deer, WI~~53209-1017
+%   \end{minipage}
+  \hfill
+  \begin{minipage}[b]{2.2in}
+    \flushright \footnotesize 
+    {\myphone} \\ %\texttt{}~
+    {\myemail} \\
+    www.alexabrahams.me
+  \end{minipage}
+}\par
+\hrulefill
+\end{adjustwidth}  
+\reversemarginpar 
+\setlength\marginparwidth{0.85in}
+\smallskip
+
+\mhead{Experience}%
+\textbf{Amsterdam Capital Trading} - \emph{Quantitative Trader} \rdate{2018–\textsc{present}} %\textsc{Sept}~2018
+\begin{itemize*}
+  \item I started as a research intern on the energy commodity proprietary trading desk.
+  \item From late-2018 I started full-time as a Quantitative Analyst. During this time I developed combinatorial optimization algorithms in C++ for OTC products among other projects in derivative pricing and portfolio management.
+  \item As of mid-2020 I've been working as a Quant Trader where I've been backtesting, developing and implementing latency-sensitive and statistical arbitrage strategies for exchange-traded derivatives.
+\end{itemize*}
+
+\medskip
+\textbf{Mathematics Tutor} \rdate{2016}
+
+\medskip
+\textbf{Rathbone Investment Management} - \emph{Internship} \rdate{2014}
+
+\bigskip
+\mhead{Tech Stack}
+\vspace{-5mm}
+% \begin{itemize*}
+% \item Programming: Python, \ML{}, R, \CPP{}, VBA, Mathematica
+% \item Software: SQL, Git, HTML/CSS
+% \end{itemize*}
+
+\begin{itemize*}
+  \item Languages \& libraries: \CPP{} (STL, Boost), Python (ØMQ, asyncio, blpapi, NumPy, pandas, SciPy, sklearn, SQLAlchemy), Cython, \ML{}, R, Mathematica
+\end{itemize*}
+\begin{itemize*}
+  \item Databases: MongoDB, SQL, ORM, Redis
+\end{itemize*}
+\begin{itemize*}
+  \item Tools: Bloomberg EMSX, TT API, FIX protocol, CI/CD, Docker, git 
+\end{itemize*}
+
+\bigskip
+
+\mhead{Education}%
+\textbf{Stockholm University} - \emph{Market Microstructure Course} \rdate{2021} 
+\begin{itemize*}
+  \item Market design, high frequency trading, and optimal execution algorithms.
+\end{itemize*}
+
+\medskip
+\textbf{University of Bologna} - \emph{MSc Quantitative Finance} \rdate{2016–2019} 
+\begin{itemize*}
+  \item Thesis: \textit{Quantum Annealing for Cardinality Constrained Portfolio Optimisation}
+  \item Supervisors: Prof. M. Gaspari, Prof. E. Bernardi
+  \item Final Grade: 105/110
+  \item Relevant courses: Stochastic Calculus, Advanced Probability, Statistics, Econometrics (R/\ML{}), Actuarial Mathematics, Financial Mathematics, Computer Programming (Python), Numerical Methods (Mathematica), Interest Rate Models, Advanced Computational Finance (\CPP{}/Python).
+\end{itemize*}
+
+\medskip
+\textbf{Advanced Risk and Portfolio Management}
+\rdate{2017} 
+\begin{itemize*}
+  \item Project: \textit{Applications of Random Matrix Theory to the Equity Market}
+  \item Awarded a scholarship from Eurizon Capital. Topics included data science and machine learning; classical/Bayesian multivariate statistics and econometrics; risk management; factor modelling, portfolio construction and optimisation; algorithmic trading.
+\end{itemize*}
+
+\medskip
+\textbf{Harvard University} - \emph{Quantitative Methods, Summer Semester} \rdate{2016} 
+
+\medskip
+\textbf{University of Liverpool} - \emph{BSc Economics} \rdate{2013-2016} 
+
+\medskip
+\textbf{Copenhagen Business School} - \emph{Financial Management, Summer Semester} \rdate{2015}
+
+\end{document}
