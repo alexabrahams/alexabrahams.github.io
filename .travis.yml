@@ -13,6 +13,4 @@ script:
   - make clean
   - make build
   - make github
-env:
-  global:
-    - secure: "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"
+
