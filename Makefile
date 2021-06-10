@@ -1,6 +1,6 @@
 TEXFILE = alex_abrahams_cv.tex
 PDFFILE = alex_abrahams_cv.pdf
-
+TRAVIS_REPO_SLUG = alexabrahams/alexabrahams.github.io
 BASEDIR=$(CURDIR)
 OUTPUTDIR=$(BASEDIR)/output
 
