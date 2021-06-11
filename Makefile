@@ -25,8 +25,8 @@ build:
 	sudo docker run -it -v $(BASEDIR):/tmp latex lualatex alex_abrahams_cv.tex
 	mv $(PDFFILE) $(OUTPUTDIR)
 	cp CNAME $(OUTPUTDIR)
-	cp img $(OUTPUTDIR)
-	cp js $(OUTPUTDIR)
+	cp -R img $(OUTPUTDIR)
+	cp -R js $(OUTPUTDIR)
 	cp index.html $(OUTPUTDIR)
 
 github:
