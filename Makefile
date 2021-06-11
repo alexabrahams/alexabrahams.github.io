@@ -22,7 +22,7 @@ clean:
 build:
 	mkdir $(OUTPUTDIR)
 	echo $(BASEDIR)
-	sudo docker run -it -v $(BASEDIR):/tmp latex lualatex latex/alex_abrahams_cv.tex
+	sudo docker run -it -v $(BASEDIR):/tmp latex lualatex alex_abrahams_cv.tex
 	mv $(PDFFILE) $(OUTPUTDIR)
 	cp CNAME $(OUTPUTDIR)
 	cp img $(OUTPUTDIR)
